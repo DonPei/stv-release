@@ -1,0 +1,97 @@
+
+##########################################
+# OS-specific junk
+##########################################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+._*
+*.tmp
+*.swp
+*.bak
+
+##########################################
+# Maven build artifacts (all modules)
+##########################################
+**/target/
+*.log
+*.class
+pom.xml.tag
+pom.xml.versions
+pom.xml.releaseBackup
+
+##########################################
+# Node / Frontend build artifacts (all modules)
+##########################################
+**/node/
+**/node_modules/
+**/dist/
+**/build/
+.cache/
+.npm/
+.yarn/
+.pnp.*
+**/clientlib-site-a/
+
+##########################################
+# Environment & local configs
+##########################################
+.env
+.env.local
+local.properties
+# Adobe I/O CLI configuration and cache
+.aio
+
+##########################################
+# IDE / Editor files (developer-specific)
+##########################################
+# IntelliJ / JetBrains
+.idea/
+*.iml
+*.iws
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+.history/
+
+### Vault ###
+.vlt
+
+# Editor files
+*~
+*.swp
+
+##########################################
+# AEM-specific
+##########################################
+*.zip
+*.jar
+*.crx
+*.log
+/crs-quickstart/
+.env
+/oak_run/
+/bundles/
+
+
+sandbox/
+.ghc
+prompt*
+##########################################
+# Shared configs (keep in Git!)
+##########################################
+# DO NOT ignore the following:
+#   .babelrc           → Babel transpilation config
+#   .eslintrc*, .eslintignore → Linting rules
+#   .prettierrc*       → Formatting rules
+#   .editorconfig      → Shared editor/IDE rules
+#   webpack.config.js  → Webpack config for ui.frontend
+#   postcss.config.js, tailwind.config.js, etc.
+
