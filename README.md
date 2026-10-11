@@ -1,4 +1,4 @@
-# Documentation for Seismic Trace Viewer (STV)
+# [Seismic Trace Viewer (STV)](https://donpei.github.io/stv-release)
 
 _A Product of GHC Consulting_
 
@@ -11,6 +11,7 @@ Last Revision: October 10, 2026
 ## Contents
 
   * System Requirements
+  * Downloads
   * Installing
   * Quick Start
   * Preface
@@ -27,8 +28,6 @@ Last Revision: October 10, 2026
   * Legal
   * References
 
-* * *
-
 ## System Requirements
 
 STV is a Java application and runs on any platform with a compatible Java runtime. The distribution includes a trimmed Java runtime, so you do not need to install Java separately. The requirements are:
@@ -43,6 +42,18 @@ The app has been tested on:
 
   * 64-bit Windows® 10 and 11
   * macOS on Apple silicon and Intel
+
+## Downloads
+
+[Download page](https://github.com/DonPei/stv-release/releases) contains one portable bundle per platform — unzip and run, no installation required.
+
+| Platform | Download |
+|---|---|
+| Windows 10/11 (64-bit) | `stv_1.0.0_win_app.zip` |
+| macOS 11+ (Apple Silicon and Intel) | `stv_1.0.0_mac_app.zip` |
+| Linux (64-bit) | `stv_1.0.0_linux_app.zip` |
+
+Each bundle includes a trimmed Java runtime — no Java installation required.
 
 * * *
 
