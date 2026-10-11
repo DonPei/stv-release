@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutorials | STV Seismic Trace Viewer</title>
+<meta name="description" content="Step-by-step tutorials for the STV Seismic Trace Viewer.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="images/stv_app.png" type="image/png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/stv_app.png" alt="STV">STV <span style="font-weight:400">Seismic Trace Viewer</span></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="manual.html">Manual</a>
+      <a href="screenshots.html">Screenshots</a>
+      <a href="tutorials.html" class="active">Tutorials</a>
+      <a href="download.html">Download</a>
+    </nav>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Tutorials</h2>
+    <p class="lead">Short, practical walkthroughs. Each takes only a few minutes.</p>
+
+    <div class="tutorial">
+      <h3>1. Opening Your First File</h3>
+      <ol>
+        <li>Start STV by running the launch script.</li>
+        <li>Press <code>Ctrl+O</code> (or choose <strong>File &gt; Open Folder</strong>) and pick a folder containing <code>.segy</code> or <code>.sgy</code> files.</li>
+        <li>The folder appears as the root of the file tree on the left.</li>
+        <li>Click any SEG-Y file — its traces appear in the display panel.</li>
+      </ol>
+    </div>
+
+    <div class="tutorial">
+      <h3>2. When Traces Look Like Noise — Check Byte Order</h3>
+      <ol>
+        <li>If a file loads but the wiggles look like white noise or amplitudes are absurd, the file is probably little-endian.</li>
+        <li>Uncheck the <strong>Big Endian</strong> checkbox on the toolbar.</li>
+        <li>The file reloads immediately with bytes swapped. Flip it back and forth until the data looks right.</li>
+        <li>Classic SEG-Y is big-endian; revision 2.0 (2017) additionally permits little-endian.</li>
+      </ol>
+    </div>
+
+    <div class="tutorial">
+      <h3>3. Inspecting Trace Headers</h3>
+      <ol>
+        <li>Choose <strong>View &gt; Monitor trace header</strong>.</li>
+        <li>A dialog opens and follows your cursor.</li>
+        <li>Move across the display — the dialog shows the 240-byte header of the trace under the cursor: sequence numbers, shot/receiver coordinates, offset, CDP, and more.</li>
+        <li>Leave it open while you work; the numbers update live.</li>
+      </ol>
+    </div>
+
+    <div class="tutorial">
+      <h3>4. Checking the File Headers First</h3>
+      <ol>
+        <li>When a file looks wrong, check the file-level headers before the traces.</li>
+        <li><strong>View &gt; File binary header</strong> shows sample interval, samples per trace, and data format code — the most common liars.</li>
+        <li><strong>View &gt; File EBCDIC header</strong> shows the 40-line textual description: client, line, acquisition parameters, processing history.</li>
+        <li>If the EBCDIC header is blank or garbage, the file may be corrupt or mistyped.</li>
+      </ol>
+    </div>
+
+    <div class="tutorial">
+      <h3>5. Zooming and Panning</h3>
+      <ol>
+        <li><strong>Zoom in:</strong> hold <code>Alt+Shift</code> and drag a rectangle — release to zoom into it.</li>
+        <li><strong>Zoom out:</strong> click with <code>Alt+Shift</code> held down.</li>
+        <li><strong>Pan:</strong> click the pan-mode toolbar button, then drag the display to scroll.</li>
+        <li>Or use the toolbar zoom buttons for axis-specific zoom (horizontal / vertical).</li>
+      </ol>
+    </div>
+
+    <div class="tutorial">
+      <h3>6. Taking Snapshots for Reports</h3>
+      <ol>
+        <li>Frame the view you want.</li>
+        <li>For a quick paste into a document: click the <strong>snapshot to clipboard</strong> button.</li>
+        <li>For a file: click the <strong>snapshot to PNG</strong> button — it saves into the project image folder with an automatic timestamp name.</li>
+        <li>Use the <strong>pane</strong> variants to include side labels — usually the better choice for figures.</li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><strong>GHC Consulting</strong><br>Seismic Trace Viewer (STV)<br>&copy; 2019&ndash;2026 GHC Consulting</div>
+    <div><a href="manual.html">User Manual</a><br><a href="https://github.com/DonPei/stv-release/releases">Releases</a><br><a href="download.html">Download</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

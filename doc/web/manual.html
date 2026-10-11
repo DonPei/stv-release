@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Manual | STV Seismic Trace Viewer</title>
+<meta name="description" content="Complete user manual for the STV Seismic Trace Viewer.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="images/stv_app.png" type="image/png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="images/stv_app.png" alt="STV">STV <span style="font-weight:400">Seismic Trace Viewer</span></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="manual.html" class="active">Manual</a>
+      <a href="screenshots.html">Screenshots</a>
+      <a href="tutorials.html">Tutorials</a>
+      <a href="download.html">Download</a>
+    </nav>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <h2>User Manual</h2>
+    <p class="lead">The complete STV documentation &mdash; also included in every download.</p>
+    <div class="manual-body">
+<h1>Documentation for Seismic Trace Viewer (STV)</h1>
+<p><em>A Product of GHC Consulting</em></p>
+<p><img alt="GHC Consulting logo" src="images/ghc_logo.png" /></p>
+<p>Copyright © 2019-2026 GHC Consulting</p>
+<p>Last Revision: October 10, 2026</p>
+<h2>Contents</h2>
+<ul>
+<li>System Requirements</li>
+<li>Installing</li>
+<li>Quick Start</li>
+<li>Preface</li>
+<li>The Main Window</li>
+<li>Opening Data</li>
+<li>The Toolbar</li>
+<li>The View Menu</li>
+<li>Monitoring Trace Headers and Samples</li>
+<li>Snapshots</li>
+<li>Mouse and Keyboard Shortcuts</li>
+<li>About SEG-Y</li>
+<li>About the Programming</li>
+<li>Acknowledgements</li>
+<li>Legal</li>
+<li>References</li>
+</ul>
+<hr />
+<h2>System Requirements</h2>
+<p>STV is a Java application and runs on any platform with a compatible Java runtime. The distribution includes a trimmed Java runtime, so you do not need to install Java separately. The requirements are:</p>
+<ul>
+<li>A 64-bit operating system: Windows® 10 or later, macOS 11 or later, or a 64-bit Linux distribution.</li>
+<li>A video display with:<ul>
+<li>32-bit color</li>
+<li>A screen resolution of 1280×800 or better. A widescreen monitor works best, because seismic lines are wide.</li>
+</ul>
+</li>
+<li>Enough memory to hold the data you want to view. A 500-trace by 2000-sample SEG-Y file is only a few megabytes, but very large 3D volumes are best viewed one line at a time.</li>
+</ul>
+<p>The app has been tested on:</p>
+<ul>
+<li>64-bit Windows® 10 and 11</li>
+<li>macOS on Apple silicon and Intel</li>
+</ul>
+<hr />
+<h2>Installing</h2>
+<p>STV is distributed as a <code>.zip</code> archive containing the application, a trimmed Java runtime, launch scripts, and this documentation.</p>
+<h3>Installing on Windows</h3>
+<ol>
+<li>Download the latest STV <code>.zip</code> archive.</li>
+<li>Unzip it to a folder of your choice, for example <code>C:\apps\stv</code>.</li>
+<li>Double-click the launch script (or its icon <img alt="STV icon" src="images/stv_app.png" />) to start the program.</li>
+</ol>
+<h3>Installing on macOS</h3>
+<ol>
+<li>Download the latest STV <code>.zip</code> archive.</li>
+<li>Unzip it and drag the <code>stv</code> folder to your <code>Applications</code> directory, or run it in place.</li>
+<li>Double-click the launch script to start the program. The STV icon <img alt="STV icon" src="images/stv_app.png" /> appears in the dock while the program runs, and a tray icon is available for quick access.</li>
+</ol>
+<h3>Installing on Linux</h3>
+<ol>
+<li>Download the latest STV <code>.zip</code> archive.</li>
+<li>Unzip it, make the launch script executable if needed (<code>chmod +x stv.sh</code>), and run it.</li>
+</ol>
+<p>No installer is required and nothing is written outside the folder you unzipped. To uninstall, simply delete the folder.</p>
+<hr />
+<h2>Quick Start</h2>
+<p>If instructions bore you, do the following:</p>
+<ul>
+<li>Start the program.</li>
+<li>Press <strong>Ctrl+O</strong> (or choose <strong>File &gt; Open Folder</strong>) and pick a folder containing SEG-Y files (<code>.segy</code> or <code>.sgy</code>).</li>
+<li>Click a file in the tree on the left. Its traces appear in the display.</li>
+<li>Drag with <strong>Alt+Shift</strong> held down to zoom into an area; click with <strong>Alt+Shift</strong> to zoom back out.</li>
+</ul>
+<p>Read the rest of the documentation to understand what you are looking at.</p>
+<hr />
+<h2>Preface</h2>
+<p>STV (Seismic Trace Viewer) displays seismic traces stored in SEG-Y files, the standard exchange format of exploration seismology. It is a working tool, not a toy: it reads real field and processed data, shows every trace as a wiggle, and lets you inspect the headers that describe each trace.</p>
+<p>The program was written by GHC Consulting, a hydraulic fracturing consultancy, for the unglamorous but essential job of <em>looking at the data</em>: checking that a SEG-Y file is what it claims to be, that the headers make sense, that the amplitudes are sane, and that the geometry hangs together before the data goes into processing or interpretation.</p>
+<p>STV tries to do one thing well. It does not process, filter, or migrate data. It shows you the traces, quickly and honestly, so you can decide what to do next.</p>
+<hr />
+<h2>The Main Window</h2>
+<p>To start the program, run the launch script, or double-click its icon <img alt="STV icon" src="images/stv_app.png" />. The program opens a window with four major portions:</p>
+<ul>
+<li>The <strong>menu bar</strong> at the top holds the <strong>File</strong> and <strong>View</strong> menus.</li>
+<li>The <strong>toolbar</strong> below it holds zoom, pan, snapshot, and settings buttons, plus a <strong>Big Endian</strong> checkbox (see Opening Data).</li>
+<li>The <strong>file tree</strong> on the left browses the folder you opened. Click a SEG-Y file to load it.</li>
+<li>The <strong>display panel</strong> on the right shows the seismic traces.</li>
+</ul>
+<p>Before any data is loaded, the display shows the STV home panel: a summary of the mouse shortcuts (also listed under Mouse and Keyboard Shortcuts).</p>
+<p>The rest of this section explains the menus, toolbar buttons, and dialogs that control the program.</p>
+<hr />
+<h2>Opening Data</h2>
+<h3>Opening a Folder</h3>
+<p>Choose <strong>File &gt; Open Folder</strong> <img alt="open icon" src="images/open.png" /> (or press <strong>Ctrl+O</strong>) and select a folder containing seismic data. The folder appears as the root of the file tree on the left. Click any <code>.segy</code> or <code>.sgy</code> file in the tree to load it; its traces are drawn in the display panel.</p>
+<p>The <strong>File</strong> menu also keeps a list of up to 20 recently opened files and folders, so you can jump straight back to yesterday's data.</p>
+<h3>Byte Order: the Big Endian Checkbox</h3>
+<p>The toolbar carries a <strong>Big Endian</strong> checkbox. Classic SEG-Y files store binary values big-endian (most significant byte first), and STV assumes big-endian by default.</p>
+<p>If a file loads but the traces look like white noise, or the amplitudes are absurd, the file is probably little-endian (allowed since SEG-Y revision 2.0). Uncheck <strong>Big Endian</strong> and the file is reloaded with the bytes swapped. Checking or unchecking the box reloads the current file immediately, so you can flip it back and forth until the data looks right.</p>
+<p>See About SEG-Y for why byte order matters.</p>
+<hr />
+<h2>The Toolbar</h2>
+<p>The toolbar buttons control the display. Hover over any button for a tooltip.</p>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="zoom in" src="images/csZoomIn.gif" /></td>
+<td>Zoom in, both directions</td>
+</tr>
+<tr>
+<td><img alt="zoom out" src="images/csZoomOut.gif" /></td>
+<td>Zoom out, both directions</td>
+</tr>
+<tr>
+<td><img alt="zoom in horizontal" src="images/csZoomInHorz.gif" /></td>
+<td>Zoom in horizontally (more traces across the screen)</td>
+</tr>
+<tr>
+<td><img alt="zoom out horizontal" src="images/csZoomOutHorz.gif" /></td>
+<td>Zoom out horizontally</td>
+</tr>
+<tr>
+<td><img alt="zoom in vertical" src="images/csZoomInVert.gif" /></td>
+<td>Zoom in vertically (stretch the time axis)</td>
+</tr>
+<tr>
+<td><img alt="zoom out vertical" src="images/csZoomOutVert.gif" /></td>
+<td>Zoom out vertically</td>
+</tr>
+<tr>
+<td><img alt="pan mode" src="images/csPanMode.png" /></td>
+<td>Pan mode: drag the display to scroll through the data</td>
+</tr>
+<tr>
+<td><img alt="snapshot" src="images/seaview_snapshot.png" /></td>
+<td>Snapshot of the current view to the clipboard</td>
+</tr>
+<tr>
+<td><img alt="snapshot pane" src="images/seaview_snapshot_pane.png" /></td>
+<td>Snapshot including side labels to the clipboard</td>
+</tr>
+<tr>
+<td><img alt="snapshot file" src="images/seaview_snapshot_file.png" /></td>
+<td>Snapshot of the current view to a PNG file</td>
+</tr>
+<tr>
+<td><img alt="snapshot pane file" src="images/seaview_snapshot_file.png" /></td>
+<td>Snapshot including side labels to a PNG file</td>
+</tr>
+<tr>
+<td><img alt="settings" src="images/settingsmall.png" /></td>
+<td>Toggle the display settings panel</td>
+</tr>
+</tbody>
+</table>
+<p>The display settings panel (toggled by the last button) controls how traces are drawn. Experiment freely; every control redraws the display immediately, and nothing you do there modifies your data file.</p>
+<hr />
+<h2>The View Menu</h2>
+<p>The <strong>View</strong> menu opens windows that show the numbers behind the wiggles.</p>
+<p><strong>File EBCDIC header</strong>: shows the 3200-byte textual file header as 40 lines of text. This is the human-readable description of the data set: client, line, reel, acquisition parameters, processing history. On old files it is encoded in EBCDIC; STV converts it for display. If this header is blank or garbage, the file may be corrupt or mistyped.</p>
+<p><strong>File binary header</strong>: shows the 400-byte binary file header as named fields: sample interval, samples per trace, data format code, and the other values that apply to every trace in the file. Check the sample interval and trace length here first when a file looks wrong; they are the most common liars.</p>
+<p><strong>Monitor trace header</strong> and <strong>Monitor trace sample</strong> open live monitor dialogs; see the next section.</p>
+<hr />
+<h2>Monitoring Trace Headers and Samples</h2>
+<p><strong>Monitor trace header</strong> opens a dialog that follows your cursor: as you move across the display, it shows the 240-byte trace header of the trace under the cursor as named fields — trace sequence number, field record number, source and receiver coordinates, offset, CDP number, and the rest. This is the fastest way to answer "which trace am I looking at, and where was it shot?"</p>
+<p><strong>Monitor trace sample</strong> opens a dialog that shows the actual sample values of the trace under the cursor. Use it to check amplitudes quantitatively instead of eyeballing wiggle heights.</p>
+<p>Both dialogs stay open while you work; move the cursor and the numbers update.</p>
+<hr />
+<h2>Snapshots</h2>
+<p>The four snapshot buttons capture what you see for reports and presentations. Two copy the image to the system clipboard (<img alt="clipboard" src="images/clipboard.png" />), ready to paste into a document; two write a PNG file (<img alt="save image" src="images/saveImage.png" />) into the project's image folder, named automatically like <code>ss2026-10-10-13-26-21.png</code>.</p>
+<p>For each destination you can capture just the trace display, or the display <em>including side labels</em>, which adds the annotation panels around the traces. The labeled version is usually the one you want for a figure.</p>
+<hr />
+<h2>Mouse and Keyboard Shortcuts</h2>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Mouse</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alt</td>
+<td>Right click</td>
+<td>Select a trace and pop up its menu</td>
+</tr>
+<tr>
+<td>Alt + Shift</td>
+<td>Drag</td>
+<td>Zoom in on the dragged rectangle (release to zoom)</td>
+</tr>
+<tr>
+<td>Alt + Shift</td>
+<td>Click</td>
+<td>Zoom out</td>
+</tr>
+<tr>
+<td>Ctrl+O</td>
+<td></td>
+<td>Open a data folder</td>
+</tr>
+<tr>
+<td>Ctrl+Q</td>
+<td></td>
+<td>Exit the program</td>
+</tr>
+</tbody>
+</table>
+<p>The same shortcuts are shown on the home panel that appears when STV starts.</p>
+<hr />
+<h2>About SEG-Y</h2>
+<p>SEG-Y is the standard format for exchanging seismic reflection data, maintained by the Society of Exploration Geophysicists (SEG). It was developed in 1973 for storing single-line seismic data on magnetic tape, and the specification was published in 1975 (Barry et al.). Revisions followed in 2002 (rev 1) and 2017 (rev 2.0), but the skeleton of every SEG-Y file is unchanged:</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Size</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Textual file header</td>
+<td>3200 bytes</td>
+<td>40 lines of 80 characters: human-readable description of the data set. Originally EBCDIC; rev 1 allows ASCII.</td>
+</tr>
+<tr>
+<td>Binary file header</td>
+<td>400 bytes</td>
+<td>Binary values applying to the whole file: sample interval, samples per trace, data format code, and more.</td>
+</tr>
+<tr>
+<td>Trace header</td>
+<td>240 bytes</td>
+<td>Binary values describing one trace: sequence numbers, shot and receiver coordinates, offset, CDP, and more.</td>
+</tr>
+<tr>
+<td>Trace data</td>
+<td>samples × bytes/sample</td>
+<td>The actual amplitude samples, in the format named by the binary header.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample formats.</strong> The binary header's format code says how each sample is stored: 32-bit IBM floating point (the 1975 original), 32-bit integer, 16-bit integer, IEEE floating point, and — since rev 1 — 8-bit integer, among others. STV reads the common formats; if your file uses an exotic one, the binary header viewer will at least tell you which code it claims.</p>
+<p><strong>Byte order.</strong> Revisions 0 and 1 define all binary values as big-endian: the most significant byte comes first. Revision 2.0 additionally permits little-endian files (flagged in bytes 3297–3300 of the binary header), mostly for I/O performance on modern hardware (Agile Scientific). This is why STV has a <strong>Big Endian</strong> checkbox: when the wiggle looks like noise, the bytes are probably in the other order.</p>
+<p><strong>A note on honesty.</strong> The headers in a SEG-Y file are metadata <em>about</em> the data, written by whoever created the file. They can be wrong — sample intervals get mistyped, coordinate units get confused, EBCDIC headers get left blank. STV shows you both the headers and the traces so you can check one against the other. Trust, but verify.</p>
+<hr />
+<h2>About the Programming</h2>
+<p><strong>Language and libraries</strong>: STV is written in Java (currently Java 21) using the Swing GUI toolkit, with the FlatLaf look-and-feel for a consistent modern appearance on Windows, macOS, and Linux (FormDev Software). It has no native code and no required third-party libraries beyond the UI theme, so the same program runs everywhere Java runs.</p>
+<p><strong>Rendering</strong>: traces are rasterized into an off-screen image and painted to the display, which keeps panning and zooming smooth even for large files. Only the visible portion is redrawn when you scroll or zoom.</p>
+<p><strong>File I/O</strong>: SEG-Y files are read directly with a built-in reader that handles the textual header, binary header, trace headers, and the common sample formats, in big- or little-endian byte order. File and path handling uses plain Java string operations, with no external dependencies.</p>
+<p><strong>Known idiosyncrasies</strong>:</p>
+<ul>
+<li>Very large files take a moment to load; the whole file is read into memory.</li>
+<li>Exotic SEG-Y revisions (extended textual headers, trace header extensions) are not fully interpreted, though the standard headers display correctly.</li>
+</ul>
+<hr />
+<h2>Acknowledgements</h2>
+<p>Thanks to the Society of Exploration Geophysicists for maintaining the SEG-Y standard as an open specification, and to the authors of the free software used in building STV:</p>
+<ul>
+<li>The FlatLaf project for the modern Swing look-and-feel</li>
+<li>The Project Lombok authors for boilerplate-free Java</li>
+<li>The USGS for its public SEG-Y format documentation</li>
+</ul>
+<p>Any errors in this documentation are the author's own.</p>
+<hr />
+<h2>Legal</h2>
+<p><strong>Distribution</strong>: STV is a product of GHC Consulting.</p>
+<p><strong>Disclaimer</strong>: No warranty expressed or implied. Use this software at your own risk.</p>
+<p>STV displays seismic data as recorded; it does not verify the correctness of file headers, and header values shown are only as reliable as the files that contain them. STV is a viewing tool, not a substitute for professional geophysical judgment.</p>
+<hr />
+<h2>References</h2>
+<ul>
+<li>Barry, K. M., Cavers, D. A., and Kneale, C. W., "Recommended standards for digital tape formats", <em>Geophysics</em>, v. 40, 1975. The original SEG-Y specification.</li>
+<li>SEG Technical Standards Committee, <a href="https://library.seg.org/seg-technical-standards">SEG-Y revision 2.0</a>, January 2017. The current SEG-Y standard, including little-endian support.</li>
+<li>U.S. Geological Survey, <a href="https://pubs.usgs.gov/of/2000/0340/htmldocs/segy.html">Open-File Report 2000-0340: SEG-Y file format description</a>, with an annotated example of the 3200-byte textual header and binary header layout.</li>
+<li>Agile Scientific, <a href="https://agilescientific.com/blog/2017/3/31/little-endian-is-legal">"SEG-Y Rev 2 again: little-endian is legal!"</a>, 2017. A plain-English tour of what changed in SEG-Y revision 2.0.</li>
+<li>FormDev Software, <a href="https://www.formdev.com/flatlaf/">FlatLaf — Flat Look and Feel</a>, the modern Swing theme used by STV.</li>
+</ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><strong>GHC Consulting</strong><br>Seismic Trace Viewer (STV)<br>&copy; 2019&ndash;2026 GHC Consulting</div>
+    <div><a href="index.html">Home</a><br><a href="https://github.com/DonPei/stv-release/releases">Releases</a><br><a href="download.html">Download</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
