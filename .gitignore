@@ -84,6 +84,7 @@ out/
 sandbox/
 .ghc
 prompt*
+downloads/
 ##########################################
 # Shared configs (keep in Git!)
 ##########################################
