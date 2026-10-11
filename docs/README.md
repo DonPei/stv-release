@@ -4,16 +4,12 @@ Static website for the STV (Seismic Trace Viewer) product, designed for GitHub P
 
 ## Deploying to GitHub Pages
 
-### Option 1: From the stv-release repository
+This folder (`docs/`) is the GitHub Pages source for the `stv-release` repository.
 
-1. Copy the contents of this folder (`index.html`, `manual.html`, `screenshots.html`, `tutorials.html`, `download.html`, `css/`, `images/`) to your `stv-release` repository.
+1. Commit and push the `docs/` folder to the `main` branch.
 2. Go to the repository Settings → Pages.
-3. Set Source to "Deploy from a branch" and select the branch (e.g., `main`) and folder (`/` root or `/docs`).
-4. The site will be live at `https://<username>.github.io/stv-release/`.
-
-### Option 2: Project Pages
-
-Push the contents to the `gh-pages` branch of the `stv-release` repository.
+3. Set Source to "Deploy from a branch", select `main` and folder `/docs`.
+4. The site will be live at `https://donpei.github.io/stv-release/`.
 
 ## Pages
 
@@ -29,7 +25,7 @@ The `images/` folder contains:
 - `stv_app.png` — STV application icon (used in header and as favicon)
 - `ghc_logo.png` — GHC Consulting logo
 
-For the manual page, copy the full `doc/images/` folder contents into `images/` so the toolbar icons and other manual images resolve.
+For the manual page, copy the toolbar icons from the STV project's `doc/images/` folder into `images/` so they resolve.
 
 For screenshots, replace the placeholders in `screenshots.html` with real `<img>` tags pointing to your screenshot files in `images/`.
 
