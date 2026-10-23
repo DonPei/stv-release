@@ -17,7 +17,7 @@ This folder (`docs/`) is the GitHub Pages source for the `stv-release` repositor
 - `manual.html` — Complete user manual (converted from doc/readme.md)
 - `screenshots.html` — Screenshot gallery (placeholders — replace with real screenshots)
 - `tutorials.html` — Step-by-step tutorials
-- `download.html` — Download links pointing to GitHub Releases
+- `download.html` — Download links pointing to GitHub Releases (disabled)
 
 ## Images
 
